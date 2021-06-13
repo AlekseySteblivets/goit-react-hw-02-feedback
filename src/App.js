@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import TitleSection from './components/TitleSection';
 import Statistics from './components/Statistics';
 import FeedbackOptions from './components/FeedbackOptions';
+// import Notification from './components/Notification';
 
 
 class App extends Component {
@@ -11,10 +12,11 @@ class App extends Component {
     bad: 0
   }
 
+
   countTotalFeedback = () => this.state.good + this.state.neutral + this.state.bad;
   countPositiveFeedbackPercentage = () => {
     let total = this.countTotalFeedback();
-    let result = (this.state.good / total) * 100;
+    let result = Math.round((this.state.good / total) * 100);
     if(total <= 0) {
       return;
     }
@@ -64,7 +66,10 @@ class App extends Component {
              total={this.countTotalFeedback}
               positivePercentage={this.countPositiveFeedbackPercentage}
               />
-         
+
+        {/* <Notification
+         message="No feedback given"/>
+          */}
       </div>
     );
   }

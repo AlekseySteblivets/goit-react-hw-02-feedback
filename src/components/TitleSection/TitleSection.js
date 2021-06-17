@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './TitleSection.module.css';
+import PropTypes from 'prop-types';
 
 const TitleSection = ({title}) => {
     return(
@@ -10,6 +11,10 @@ const TitleSection = ({title}) => {
     </>
     );
 
+}
+
+TitleSection.propTypes = {
+    title: PropTypes.string.isRequired,
 }
 
 export default TitleSection;
